@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import './index.css'
+import React, { useState, useEffect } from "react";
+import "./index.css";
 
-const BannerCardItem = props => {
-  const {bannerDetails, onAnswerSelect} = props
+const BannerCardItem = (props) => {
+  const { bannerDetails, onAnswerSelect } = props;
   const {
     Question,
     Option1,
@@ -10,22 +10,22 @@ const BannerCardItem = props => {
     Option3,
     Option4,
     className,
-  } = bannerDetails
-  const [selectedOption, setSelectedOption] = useState('')
-  const [feedbackMessage, setFeedbackMessage] = useState('')
+  } = bannerDetails;
+  const [selectedOption, setSelectedOption] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  // Reset the selected option and feedback message when the question changes
+  const a = 0;
   useEffect(() => {
-    setSelectedOption('') // Reset select value when a new question is loaded
-    setFeedbackMessage('') // Clear feedback message when moving to the next question
-  }, [bannerDetails])
+    setSelectedOption(""); // Reset select value when a new question is loaded
+    setFeedbackMessage(""); // Clear feedback message when moving to the next question
+  }, [bannerDetails]);
 
   const handleSubmit = () => {
     if (selectedOption) {
-      const feedback = onAnswerSelect(selectedOption)
-      setFeedbackMessage(feedback)
+      const feedback = onAnswerSelect(selectedOption);
+      setFeedbackMessage(feedback);
     }
-  }
+  };
 
   return (
     <>
@@ -34,7 +34,7 @@ const BannerCardItem = props => {
           <h1 className="heading">{Question}</h1>
           <select
             value={selectedOption}
-            onChange={e => setSelectedOption(e.target.value)}
+            onChange={(e) => setSelectedOption(e.target.value)}
           >
             <option value="" disabled>
               Select an option
@@ -55,7 +55,7 @@ const BannerCardItem = props => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BannerCardItem
+export default BannerCardItem;
